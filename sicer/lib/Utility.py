@@ -32,6 +32,8 @@ def get_available_cpus():
     except AttributeError:
         # Windows / MacOS probably don't have this functionality
         CPUS = os.cpu_count()
+    # leave one core for I/O if number of CPUS > 1
+    CPUS = CPUS -1 if CPUS > 1 else CPUS
     return CPUS
 
 

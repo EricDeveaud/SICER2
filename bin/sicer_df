@@ -15,7 +15,7 @@ import argparse
 from sicer.main import run_SICER_df
 from sicer.lib import Utility, GenomeData
 
-cpu_available = os.cpu_count() - 1  #leave one core for I/O
+cpu_available = Utility.get_available_cpus()
 
 def warning_on_one_line(message, category, filename, lineno, file=None, line=None):
         return '%s:%s: %s:%s\n' % (filename, lineno, category.__name__, message)
